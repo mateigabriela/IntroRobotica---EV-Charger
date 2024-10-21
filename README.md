@@ -70,8 +70,9 @@ This project simulates a basic electric vehicle charging station using an Arduin
 
 ## Video Demonstration
 
-[Start Button Video Demonstration](https://youtu.be/qE5U2V8zHOs)  
-[Stop Button Video Demonstration](https://youtu.be/PNKp6y91FdA)
+![Start Button Video Demonstration](https://youtu.be/qE5U2V8zHOs)  
+![Stop Button Video Demonstration](https://youtu.be/PNKp6y91FdA)
+[ThinkerCad Video Demonstration](https://youtu.be/mJV_qa7zE2U)
 
 
 ## How to Use
