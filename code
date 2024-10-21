@@ -1,0 +1,151 @@
+const int startButtonPin = 3;
+const int stopButtonPin = 2;
+
+const int redPin =  6;
+const int greenPin =  4;
+const int bluePin =  5;
+
+const int ledPins[] = {10, 9, 8, 7};
+
+unsigned long lastDebounceTime = 0;
+unsigned long debounceDelay = 50;
+
+int currentLed = 0;
+bool isCharging = false;
+unsigned long previousMillis = 0;
+const long blinkInterval = 3000;
+
+void resetCharging();
+void startCharging();
+void handleChargingProcess();
+void finishCharging();
+void stopCharging();
+void blinkAllLeds();
+
+unsigned long buttonPressTime = 0;
+bool buttonPressed = false;
+
+void setup() {
+  pinMode(startButtonPin, INPUT_PULLUP);
+  pinMode(stopButtonPin, INPUT_PULLUP);
+  
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+
+  for (int i = 0; i < 4; i++) {
+    pinMode(ledPins[i], OUTPUT);
+  }
+
+  resetCharging();
+  
+  Serial.begin(9600);
+  
+  Serial.println("Arduino is starting up...");
+  
+  pinMode(startButtonPin, INPUT_PULLUP);
+  pinMode(stopButtonPin, INPUT_PULLUP);
+}
+
+void loop() {
+  int startButtonState = digitalRead(startButtonPin);
+  int stopButtonState = digitalRead(stopButtonPin);
+  
+  if (startButtonState == LOW && (millis() - lastDebounceTime > debounceDelay) && !isCharging) {
+    Serial.println("Button pressed!");
+    startCharging();
+    lastDebounceTime = millis();
+  }
+   
+  if (isCharging) {
+    digitalWrite(redPin, HIGH);
+    digitalWrite(greenPin, LOW);
+    digitalWrite(bluePin, LOW);
+    handleChargingProcess();
+    
+    if (stopButtonState == LOW && !buttonPressed) {
+      buttonPressTime = millis();
+      buttonPressed = true;
+    } else if (stopButtonState == HIGH && buttonPressed) {
+      buttonPressed = false;
+    }
+
+    if (buttonPressed && (millis() - buttonPressTime >= 500)) {
+      stopCharging();
+      buttonPressed = false;
+    }
+  }
+}
+
+void startCharging() {
+  isCharging = true;
+  currentLed = 0;
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(redPin, LOW);
+  digitalWrite(bluePin, HIGH);
+  Serial.println("Butonul trebuie sa se faca rosu");
+}
+
+void handleChargingProcess() {
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= blinkInterval) {
+    previousMillis = currentMillis;
+
+    if (currentLed < 4) {
+      digitalWrite(ledPins[currentLed - 1], HIGH);
+      Serial.print("LED-ul "); 
+      Serial.print(currentLed + 1);
+      Serial.println(" clipeste."); 
+      
+      for (int i = 0; i < 2; i++) {
+        digitalWrite(ledPins[currentLed], HIGH);
+        delay(500);
+        digitalWrite(ledPins[currentLed], LOW);
+        delay(500);
+      }
+      currentLed++;
+    } else {
+      finishCharging();
+    }
+  }
+}
+
+void finishCharging() {
+  for (int i = 0; i < 3; i++) {
+    blinkAllLeds();
+  }
+  
+  resetCharging();
+}
+
+void stopCharging() {
+  for (int i = 0; i < 3; i++) {
+    blinkAllLeds();
+  }
+  
+  resetCharging();
+}
+
+void resetCharging() {
+  isCharging = false;
+  
+  for (int i = 0; i < 4; i++) {
+    digitalWrite(ledPins[i], LOW);
+  }
+
+  digitalWrite(redPin, LOW);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, LOW);
+}
+
+void blinkAllLeds() {
+  for (int i = 0; i < 4; i++) {
+    digitalWrite(ledPins[i], HIGH);
+  }
+  delay(500);
+  for (int i = 0; i < 4; i++) {
+    digitalWrite(ledPins[i], LOW);
+  }
+  delay(500);
+}
