@@ -42,11 +42,11 @@ This project simulates a basic electric vehicle charging station using an Arduin
 - **Breadboard**
 - **Jumper wires**
 
+## Code
+[Here is the code.](./code)
+
 ## Wiring Diagram
 ![Wiring Diagram](./imagini/schema_circuit.PNG)
-
-## Code
-![Here is the code.](./code)
 
 ## Pin Assignments
 - **RGB LED:**
@@ -70,8 +70,8 @@ This project simulates a basic electric vehicle charging station using an Arduin
 
 ## Video Demonstration
 
-![Start Button Video Demonstration](https://youtu.be/qE5U2V8zHOs)  
-![Stop Button Video Demonstration](https://youtu.be/PNKp6y91FdA)  
+[Start Button Video Demonstration](https://youtu.be/qE5U2V8zHOs)  
+[Stop Button Video Demonstration](https://youtu.be/PNKp6y91FdA)  
 [ThinkerCad Video Demonstration](https://youtu.be/mJV_qa7zE2U)
 
 
