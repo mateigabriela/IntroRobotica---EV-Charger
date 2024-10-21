@@ -67,6 +67,7 @@ This project simulates a basic electric vehicle charging station using an Arduin
 ![Assembly Photo 2](./imagini/poza_circuit2.jpeg)
 ![Assembly Photo 3](./imagini/poza_circuit3.jpeg)
 ![Assembly Photo 4](./imagini/poza_circuit4.jpeg)
+![Assembly Photo 4](./imagini/poza_circuit5.jpeg)
 
 ## Video Demonstration
 
