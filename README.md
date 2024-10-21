@@ -45,6 +45,9 @@ This project simulates a basic electric vehicle charging station using an Arduin
 ## Wiring Diagram
 ![Wiring Diagram](./imagini/schema_circuit.PNG)
 
+## Code
+![Here is the code.](./code)
+
 ## Pin Assignments
 - **RGB LED:**
   - Red: Pin 6
