@@ -43,7 +43,7 @@ This project simulates a basic electric vehicle charging station using an Arduin
 - **Jumper wires**
 
 ## Wiring Diagram
-![Wiring Diagram](./images/schema_circuit.PNG)
+![Wiring Diagram](./imagini/schema_circuit.PNG)
 
 ## Pin Assignments
 - **RGB LED:**
@@ -60,10 +60,10 @@ This project simulates a basic electric vehicle charging station using an Arduin
 
 ## Assembly Photos
 
-![Assembly Photo 1](./images/poza_circuit1.jpeg)
-![Assembly Photo 2](./images/poza_circuit2.jpeg)
-![Assembly Photo 3](./images/poza_circuit3.jpeg)
-![Assembly Photo 4](./images/poza_circuit4.jpeg)
+![Assembly Photo 1](./imagini/poza_circuit1.jpeg)
+![Assembly Photo 2](./imagini/poza_circuit2.jpeg)
+![Assembly Photo 3](./imagini/poza_circuit3.jpeg)
+![Assembly Photo 4](./imagini/poza_circuit4.jpeg)
 
 ## Video Demonstration
 
